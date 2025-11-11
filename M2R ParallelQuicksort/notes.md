@@ -34,3 +34,9 @@ The table below shows the **average execution times** (in seconds) for each arra
 
 
 ![Execution time graph](image.png)
+
+### **Confidence Intervals (95%)**
+![Confidence Interval](image-1.png)
+*Quicksort performance with 95% confidence intervals.  
+The shaded regions represent the uncertainty of the mean execution time.  
+Non-overlapping intervals indicate statistically significant performance differences.*
