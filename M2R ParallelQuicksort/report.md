@@ -66,3 +66,7 @@ The table below shows the **average execution times** (in seconds) for each arra
 *Quicksort performance with 95% confidence intervals.  
 The shaded regions represent the uncertainty of the mean execution time.  
 Non-overlapping intervals indicate statistically significant performance differences.*
+
+**Conclusion**
+
+Parallel QuickSort shows no gain for small inputs due to threading overhead, but approaches sequential performance on large datasets. The built-in qsort remains the most efficient overall.
