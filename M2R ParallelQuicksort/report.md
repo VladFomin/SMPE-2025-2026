@@ -31,23 +31,14 @@ It includes:
 
 ### `/test/`
 
-This directory contains scripts used for running experiments, generating plots, and writing reports.  
-It includes:
-
-- **`run_experiments.py`** — executes the sorting programs with multiple input sizes and records execution times  
-- **`plot.py`** — visualizes the collected data and produces performance graphs  
-- **`report.md`** — the final written report with all analysis and figures  
-
----
+This directory contains scripts used for running experiments and generating plots.  
 
 ### `/scripts/data/`
 
 This folder stores all measurement data and generated results, including:
 
 - **CSV files** containing average execution times (e.g., `averages.csv`)  
-- **Figures and charts** displaying algorithm performance and confidence intervals  
 
-Each experiment session is saved in a dedicated subdirectory for better organization.
 
 ## Results
 
@@ -68,10 +59,10 @@ The table below shows the **average execution times** (in seconds) for each arra
 - Built-in `qsort` is consistently fast for all tested sizes.  
 
 
-![Execution time graph](image.png)
+![Execution time graph](test/image.png)
 
 ### **Confidence Intervals (95%)**
-![Confidence Interval](image-1.png)
+![Confidence Interval](test/image-1.png)
 *Quicksort performance with 95% confidence intervals.  
 The shaded regions represent the uncertainty of the mean execution time.  
 Non-overlapping intervals indicate statistically significant performance differences.*
