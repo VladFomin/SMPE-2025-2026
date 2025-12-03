@@ -1,5 +1,7 @@
 ## Critique of "Daily new confirmed COVID-19 cases per million people" 
 
+![](image.png)
+
 **Figure:** Rolling 7-day average of daily COVID-19 cases per million
 
 **Objective:** Evaluate the chart using the checklist for good graphics and suggest improvements
