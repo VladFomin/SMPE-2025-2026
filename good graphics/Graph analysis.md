@@ -1,12 +1,6 @@
 ## Critique of "Daily new confirmed COVID-19 cases per million people" 
 
 ![](image.png)
-
-**Figure:** Rolling 7-day average of daily COVID-19 cases per million
-
-**Objective:** Evaluate the chart using the checklist for good graphics and suggest improvements
-
-
 ### 1. Analysis Based on the Checklist
 
 The chart is a line plot which is appropriate for time-series data but it has several issues:
@@ -19,7 +13,6 @@ The chart is a line plot which is appropriate for time-series data but it has se
 | **Annotations** | Axis labels clear and self-contained | **Fail** | Y-axis labels are misleading due to non-linear scaling |
 | **Annotations** | Origin at 0 or jusified if not | **Fail** | Y-axis does not start at 0, which exaggerates differences in lower case numbers |
 | **Information** | If showing averages error bars included. | **Fail** | Rolling averages are shown, but no error bars provided. |
-| **Overall** | Elegant and truthful representation | **Fail** | Non-linear unlabelled Y-axis distorts the data and misrepresents relative trends. |
 
 **Additional Observations:**
 
