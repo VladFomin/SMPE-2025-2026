@@ -6,14 +6,14 @@
 
 **Objective:** Evaluate the chart using the checklist for good graphics and suggest improvements
 
----
-### I. Analysis Based on the Checklist
+
+### 1. Analysis Based on the Checklist
 
 The chart is a line plot which is appropriate for time-series data but it has several issues:
 
 | Section | Checklist Item | Verdict | Comments |
 | :--- | :--- | :--- | :--- |
-| **Data** | Type of graphic fits the data| Pass | Line chart is suitable for time-series. |
+| **Data** | Type of graphic fits the data| Good | Line chart is suitable for time-series. |
 | **Data** | Confidence intervals visualized | **Fail** | No error bars or indication of variability. This is important because the subtitle notes cases are limited by testing. |
 | **Graphical objects** | Scales and units are explicit | **Fail** | The Y-axis is non-linear and unlabelled as such. The spacing between 30-50 and 90-200 is inconsistent, exaggerating differences in low-value regions. |
 | **Annotations** | Axis labels clear and self-contained | **Fail** | Y-axis labels are misleading due to non-linear scaling. |
@@ -27,9 +27,8 @@ The chart is a line plot which is appropriate for time-series data but it has se
 - The 7-day rolling averge smooths the data, but variability is hidden.
 - Colors alone distinguish the curves, which may be difficult for B/W printing.
 
----
 
-### II. Proposed Improvements
+### 2. Proposed Improvements
 
 To comply with the checklist, the improved chart should:
 
@@ -51,9 +50,9 @@ To comply with the checklist, the improved chart should:
 - Use different line styles for clarity in B/W printing
 - Optional: add gridlines for better visual reference
 
----
 
-### III. Suggested Chart Concept (Hand-drawn Description)
+
+### 3. Suggested Chart Concept (Hand-drawn Description)
 
 **Title:** Daily confirmed COVID-19 cases per million (7-day rolling average)
 
