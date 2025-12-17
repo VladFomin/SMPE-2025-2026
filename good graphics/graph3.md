@@ -16,8 +16,6 @@ While this graphic is professionally produced and packed with data, it intention
 * **Data Reliability:** Labor data is subject to statistical margins of error; omitting this leaves the precision of these specific points (like the 3,303,200 figure) in question.
 * **Mixed Scales and Confusion (FAIL):** The graphic mixes millions on the left axis with thousands (0 to 1,100) on the right sub-charts
 * **Inconsistent Comparison:** The checklist requires that curves be on the **same scale** for comparison. 
-* **Cognitive Load:** Because the sub-charts start at 0 but the main chart does not, you cannot visually correlate the size of the "Men" or "Women" groups to the total population without doing manual math. 
-* **Lack of Simplicity:** It risks failing the requirement that a graphic should be **elegant and simple**. 
 * **Visual Clutter:** The sheer number of objects makes it hard for the reader to identify the most relevant information quickly, suggesting some objects could be removed without modifying readability.
 
 ---

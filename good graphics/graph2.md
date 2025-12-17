@@ -35,13 +35,6 @@ This graphic is visually striking and easy to read at first glance, but it viola
   - There are **no confidence intervals or error bars**, despite the data being derived from administrative and reporting systems that involve uncertainty.
   - This gives a false sense of precision to year-to-year fluctuations.
 
-* **Overemphasis on a Single Curve:**  
-  - Only one time series is shown, with no comparison to:
-    - Other states  
-    - National trends  
-    - Non-firearm homicide trends  
-  - The checklist encourages comparative context when interpreting curves.
-
 ---
 
 ### 2. Recommendations for Improvement
