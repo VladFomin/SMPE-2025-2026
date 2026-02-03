@@ -39,6 +39,10 @@ It includes:
 - **`report.md`** — the final written report with all analysis and figures  
 
 ---
+### `/images/`
+Contains all images of plots
+
+---
 
 ### `/scripts/data/`
 

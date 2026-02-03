@@ -19,3 +19,4 @@ plt.tight_layout()
 
 plt.savefig("quicksort_results.png", dpi=300)
 plt.show()
+

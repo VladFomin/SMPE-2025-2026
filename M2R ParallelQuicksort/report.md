@@ -60,8 +60,15 @@ The table below presents the average execution times along with their **95% Conf
 ![Confidence Interval](images/image-1.png)
 *Visual representation of the mean execution times. The shaded areas represent the 95% confidence intervals. The width of these areas reflects the stability of the measurements; narrower bands indicate more consistent performance across the 5 runs.*
 
+### Linear Regression
+![Linear1](images/linear1.png)
+![Linear2](images/linear2.png)
+**Key Observations:**
+* **Model Consistency**: The measured data points closely follow the linear regression lines, indicating that the experimental results are stable and predictable.
+* **Growth Rate**: The slope of the regression line for **Parallel QuickSort** is lower than that of the **Sequential** implementation. This shows that the parallel version handles increasing data volumes more efficiently.
+* **Startup Costs**: The higher intercept on the Y-axis for the Parallel model reflects the fixed time costs associated with OpenMP task management and thread synchronization.
 ---
 
 ## Conclusion
 
-The analysis shows that while Parallel QuickSort reduces computation time for very large datasets, the overhead of thread creation and management dominates for smaller inputs. By computing **Confidence Intervals**, we have verified that the observed trends are statistically robust and the measurements are reliable despite the small sample size.
+The analysis shows that while Parallel QuickSort reduces computation time for very large datasets, the overhead of thread creation and management dominates for smaller inputs. By computing **Confidence Intervals**, we have verified that the observed trends are statistically robust and the measurements are reliable despite the small sample size. Additionally, the **Linear Regression** analysis confirms that the parallel implementation provides better scalability, as evidenced by its lower growth rate compared to the sequential approach.
