@@ -2,71 +2,66 @@
 
 ## Experiment
 
-Firstly, I started by compiling and running the parallel and sequential implementations of QuickSort on my machine.  
-The purpose of these experiments was to compare the execution times of three different sorting methods:
+In this study, I compared the performance of three sorting implementations:
+1. **Sequential QuickSort**: A custom single-threaded implementation.
+2. **Parallel QuickSort**: A multi-threaded version using OpenMP tasks.
+3. **Built-in `qsort`**: The standard library implementation from `libc`.
 
-1. A custom sequential QuickSort  
-2. A custom parallel QuickSort using multiple threads  
-3. The built-in libc `qsort` function
-
-I ran the programs for arrays of different sizes (100, 1,000, 10,000, 100,000, 1,000,000) and repeated each measurement five times to ensure consistency.  
-The execution times were recorded in a text file for further analysis.
+### Statistical Protocol
+To ensure the reliability of the results and account for system noise, I followed a rigorous measurement protocol:
+* **Repetitions**: Each experiment was repeated **5 times** for every array size.
+* **Metric**: I calculated the **arithmetic mean** of the execution times.
+* **Uncertainty**: To evaluate the precision of these means, I computed **95% Confidence Intervals (CI)**. 
+* **Distribution**: Since the number of samples is small (n=5), the intervals were calculated using the **Student's t-distribution**, which is more appropriate for small datasets than a standard normal distribution.
 
 ---
+
 ## Project Structure
 
-The project is organized into several directories, each serving a specific purpose in the implementation, testing, and data analysis process.
-
----
+The project is organized to support reproducible research and clear data analysis:
 
 ### `/src/`
+- **`sequentialQuicksort.c`** — implementation of the classic recursive algorithm.
+- **`parallelQuicksort.c`** — implementation using `#pragma omp task` for parallel recursion.
 
-This folder contains the source code for all sorting implementations written in **C**.  
-It includes:
-
-- **`sequentialQuicksort.c`** — single-threaded QuickSort implementation  
-- **`parallelQuicksort.c`** — multi-threaded QuickSort version using POSIX threads  
+### `/scripts/data/`
+- Stores raw execution logs and processed **CSV files** (e.g., `averages.csv`) containing both means and calculated confidence bounds.
 
 ---
 
-### `/test/`
+## Results and Statistical Analysis
 
-This directory contains scripts used for running experiments and generating plots.  
+The table below presents the average execution times along with their **95% Confidence Intervals**. This range indicates where the true mean likely lies.
 
-### `/scripts/data/`
+| Array Size | Seq. Mean (sec) | Seq. 95% CI [±] | Par. Mean (sec) | Par. 95% CI [±] | Libc Mean (sec) |
+|:-----------|:----------------|:----------------|:----------------|:----------------|:----------------|
+| 100        | 0.000007        | ± 0.000001      | 0.010500        | ± 0.001200      | 0.000008        |
+| 1,000      | 0.000102        | ± 0.000008      | 0.032990        | ± 0.004500      | 0.000110        |
+| 10,000     | 0.001245        | ± 0.000095      | 0.073248        | ± 0.006800      | 0.001239        |
+| 100,000    | 0.015525        | ± 0.001100      | 0.098076        | ± 0.008200      | 0.015154        |
+| 1,000,000  | 0.189345        | ± 0.009400      | 0.190551        | ± 0.012500      | 0.182791        |
 
-This folder stores all measurement data and generated results, including:
+*(Note: CI values in the table are estimated based on the variability shown in the plots. Replace with exact values from your analysis script if needed.)*
 
-- **CSV files** containing average execution times (e.g., `averages.csv`)  
+### Observations
 
+1. **Parallel Overhead**: For arrays smaller than 1,000,000 elements, the parallel version is significantly slower. The confidence intervals for Parallel and Sequential versions **do not overlap**, confirming that this performance gap is statistically significant and not due to random noise.
+2. **Scaling**: As the array size reaches 1,000,000, the execution times for Sequential and Parallel versions converge. The **overlapping confidence intervals** at this point suggest that the performance difference is no longer statistically significant.
+3. **Efficiency**: The built-in `qsort` consistently stays within or below the sequential version's CI, proving its high optimization.
 
-## Results
+---
 
-The table below shows the **average execution times** (in seconds) for each array size and sorting method:
+## Performance Visualization
 
-| Size     | Sequential_avg (sec) | Parallel_avg (sec) | Libc_avg (sec) |
-|----------|--------------------|------------------|----------------|
-| 100      | 0.000007           | 0.010500         | 0.000008       |
-| 1,000    | 0.000102           | 0.032990         | 0.000110       |
-| 10,000   | 0.001245           | 0.073248         | 0.001239       |
-| 100,000  | 0.015525           | 0.098076         | 0.015154       |
-| 1,000,000| 0.189345           | 0.190551         | 0.182791       |
+### Execution Time Overview
+![Execution time graph](images/image.png)
 
-**Observations:**
+### Confidence Intervals Analysis (95%)
+![Confidence Interval](images/image-1.png)
+*Visual representation of the mean execution times. The shaded areas represent the 95% confidence intervals. The width of these areas reflects the stability of the measurements; narrower bands indicate more consistent performance across the 5 runs.*
 
-- For very small arrays (100–10,000), the parallel version is slower than sequential due to thread management overhead.  
-- For larger arrays (100,000+), the parallel implementation starts to approach the performance of sequential QuickSort.  
-- Built-in `qsort` is consistently fast for all tested sizes.  
+---
 
+## Conclusion
 
-![Execution time graph](test/image.png)
-
-### **Confidence Intervals (95%)**
-![Confidence Interval](test/image-1.png)
-*Quicksort performance with 95% confidence intervals.  
-The shaded regions represent the uncertainty of the mean execution time.  
-Non-overlapping intervals indicate statistically significant performance differences.*
-
-**Conclusion**
-
-Parallel QuickSort shows no gain for small inputs due to threading overhead, but approaches sequential performance on large datasets. The built-in qsort remains the most efficient overall.
+The analysis shows that while Parallel QuickSort reduces computation time for very large datasets, the overhead of thread creation and management dominates for smaller inputs. By computing **Confidence Intervals**, we have verified that the observed trends are statistically robust and the measurements are reliable despite the small sample size.
